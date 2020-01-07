@@ -1,0 +1,212 @@
+*
+  word-wrap break-word
+  line-height 100%
+
+body
+  width 100vw
+  overflow-x hidden
+
+html, body, h1, h2, h3, h4, h5, h6, hr, p, iframe, dl, dt, dd, ul, ol, li, pre, form, button, input, textarea, th, td, fieldset
+  margin 0
+  padding 0
+  font-weight normal
+
+ul, ol, dl
+  list-style-type none
+
+html
+  font-family sans-serif
+  -webkit-text-size-adjust 100%
+  -ms-text-size-adjust 100%
+
+address, caption, cite, code, dfn, em, th, var
+  font-style normal
+  font-weight 400
+
+input, button, textarea, select, optgroup, option
+  font-family inherit
+  font-size inherit
+  font-style inherit
+  font-weight inherit
+
+input, button, select
+  overflow visible
+  vertical-align middle
+  outline none
+  background none
+  border none
+
+  &:active
+    background none
+
+body, th, td, button, input, select, textarea
+  font-family 'Microsoft Yahei', 'Hiragino Sans GB', 'Helvetica Neue', Helvetica, tahoma, arial, Verdana, sans-serif, 'WenQuanYi Micro Hei', '\5B8B\4F53'
+  font-size 12px
+  color #333333
+  -webkit-font-smoothing antialiased
+  -moz-osx-font-smoothing grayscale
+
+body
+  line-height 1.6
+
+h1, h2, h3, h4, h5, h6
+  font-size 100%
+
+a
+  text-decoration none
+  cursor pointer
+  color inherit
+
+  &:visited
+    text-decoration none
+
+  &:hover
+    text-decoration none
+    outline none
+
+textarea
+  outline none
+
+  /* img */
+  img
+    border none
+    vertical-align middle
+
+  a img, img
+    -ms-interpolation-mode bicubic
+
+  .img-responsive
+    max-width 100%
+    height auto
+
+/*
+Name:			style_clearfix
+Example:		class="clearfix|cl"
+Explain:		Clearfix（简写cl）避免因子元素浮动而导致的父元素高度缺失能问题
+*/
+.cl:after, .clearfix:after
+  content '.'
+  display block
+  height 0
+  clear both
+  visibility hidden
+
+.cl, .clearfix
+  zoom 1
+
+ffc-row(main = space-around, cross = center)
+  display flex
+  justify-content main
+  align-items cross
+
+ffc-col(main = space-around, cross = center)
+  ffc-row(main, cross)
+  flex-direction column
+
+border-box()
+  box-sizing border-box
+
+text-center()
+  text-align center
+
+radius()
+  border-radius 1.6vw
+
+btn()
+  background-color #6236FF
+  margin 8vw auto
+  display block
+  color #ffffff
+  font-size 16px
+  height 11.7333vw
+  line-height 11.7333vw
+  width 92vw
+  radius()
+  border-box()
+
+page-header()
+  background-color #ffffff
+  font-size 17px
+  padding 4.2667vw
+  margin-bottom 3.2vw
+
+  h1
+    height 5.3333vw
+    line-height 5.3333vw
+    border-box()
+    text-center()
+    color #333333
+
+  div
+    float left
+    display inline-block
+    width 8vw
+    height 8vw
+    background url('../images/arrow-left.png') no-repeat
+    background-size 5.3333vw 5.3333vw
+    background-position center center
+
+.loading
+  position fixed
+  left 0
+  top 0
+  right 0
+  bottom 0
+  z-index 10
+  background rgba(0, 0, 0, 0.6)
+
+  &__spinner
+    position absolute
+    left 50%
+    top 50%
+    width 8px
+    height 80px
+    background-color #00B285
+    border-radius 2px
+
+    &:before, &:after
+      width 8px
+      height 80px
+      background-color #00B285
+      border-radius 2px
+
+    &:before, &:after
+      content ''
+      position absolute
+      display block
+      top 0
+
+    &:before
+      left -10px
+
+    &:after
+      left 10px
+
+    @keyframes bounce-bottom
+      0%
+        height 5px
+        margin-top 15px
+
+      50%
+        height 20px
+        margin-top 0
+
+      100%
+        height 5px
+        margin-top 15px
+
+    &-bounce-bottom
+      -webkit-animation bounce-bottom 0.6s ease 0.1s infinite
+      animation bounce-bottom 0.6s ease 0.1s infinite
+
+    &-bounce-bottom:before, &-bounce-bottom:after
+      top auto
+      bottom 0
+
+    &-bounce-bottom:before
+      -webkit-animation bounce-bottom 0.6s ease 0s infinite
+      animation bounce-bottom 0.6s ease 0s infinite
+
+    &-bounce-bottom:after
+      -webkit-animation bounce-bottom 0.6s ease 0.2s infinite
+      animation bounce-bottom 0.6s ease 0.2s infinite

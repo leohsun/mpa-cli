@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>joyPay-在线支付</title>
+</head>
+
+<body class="input">
+  <!-- <header class="input__header">
+    <div class="input__go-back"></div>
+    <h1>在线支付</h1>
+  </header> -->
+  <div class="input__amount input__card">
+    <h3 class="input__card-title">金额</h3>
+    <div class="input__amount-content">
+      <span>¥</span>
+      <input class="input__input" type="number">
+    </div>
+    <p class="input__store-name"></p>
+  </div>
+
+  <div class="input__channel input__card">
+    <h3 class="input__card-title">选择付款方式</h3>
+    <form>
+      <ul>
+        <li class="input__channel--wechat">
+          <label class="input__channel-label">微信支付
+            <input type="radio" class="wx_inp" name="channel" value='wx'>
+            <span></span>
+          </label>
+        </li>
+        <li class="input__channel--alipay">
+          <label class="input__channel-label">支付宝支付
+            <input type="radio" class="ali_inp" name="channel" value='ali'>
+            <span></span>
+          </label>
+        </li>
+        <!-- <li class="input__channel--vip">会员支付</li> -->
+      </ul>
+    </form>
+  </div>
+  <button class="input__submit">付款</button>
+  <div class="loading" style="display: none;">
+    <div class="loading__spinner loading__spinner-bounce-bottom"></div>
+  </div>
+
+</body>
+
+</html>
