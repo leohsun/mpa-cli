@@ -1,14 +1,8 @@
-let apiHost
+let apiHost = 'http://192.168.2.103:8080/'
 // export const apiHost = 'https://api.jiaozi/pay.com.cn/'
 
-switch (process.env.NODE_ENV) {
-  case 'test':
-    apiHost = 'http://192.168.2.103:8080/'
-    break
-  case 'production':
-    apiHost = 'https://api.jiaozi/pay.com.cn/'
-    break
-}
+if (process.env.NODE_ENV === 'production') apiHost = 'https://api.jiaozi/pay.com.cn/'
+
 
 export { apiHost }
 export const browserAgentReg = {

@@ -19,9 +19,8 @@ module.exports = {
   output: {
     filename: '[name].[hash:6].js',
     path: buildPath('./dist'),
-    publicPath: './',
+    publicPath: process.env.NODE_ENV === 'dev' ? '/' : './',
   },
-
 
   module: {
     rules: [
@@ -145,6 +144,7 @@ module.exports = {
     hot: true,
     host: '0.0.0.0',
     useLocalIp: true,
+    open: true,
   },
 
   optimization: {
@@ -157,15 +157,18 @@ module.exports = {
 
   plugins: [
     new CleanWebpackPlugin(),
+
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
       'process.env.DEBUG': JSON.stringify(process.env.DEBUG)
     }),
+
     new ProgressBarPlugin(),
+
     new HtmlPlugin({
       filename: 'member-center.html',
       template: buildPath('src/htmls/member-center.html'),
-      favicon: buildPath('./src/images/favicon.ico'),
+      favicon: buildPath('./src/assets/images/favicon.ico'),
       chuncks: ['member-center'],
       minify: {
         collapseWhitespace: true,

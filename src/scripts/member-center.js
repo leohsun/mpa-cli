@@ -1,6 +1,5 @@
 import '../stylus/member-center.styl'
-import { getQueryStringObject, http, transfrom2Camel } from '../scripts/utils'
-import { loader } from '../scripts/effects'
+import { getQueryStringObject, http, transfrom2Camel, loader } from '../utils'
 
 import NP from 'number-precision'
 
