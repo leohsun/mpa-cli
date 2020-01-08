@@ -1,4 +1,4 @@
-const { resolve } = require('path')
+const { resolve, basename, extname } = require('path')
 
 const HtmlPlugin = require('html-webpack-plugin')
 const CssPlugin = require('mini-css-extract-plugin')
@@ -6,16 +6,26 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 const webpack = require('webpack')
+const glob = require('glob')
 
 
 const buildPath = (path) => resolve(__dirname, path)
 console.log('process.env.NODE_ENV -->', process.env.NODE_ENV)
 
-module.exports = {
-  entry: {
-    'member-center': buildPath('./src/scripts/member-center.js')
-  },
+function getEntry(globPath) {
+  var files = glob.sync(globPath);
+  var entries = {};
+  for (var i = 0; i < files.length; i++) {
+    var entry = files[i];
+    entries[basename(entry, extname(entry))] = buildPath(entry);
+  }
+  return entries
+}
 
+const entryObj = getEntry(buildPath('src/scripts/**/*.js'))
+
+const config = {
+  entry: entryObj,
   output: {
     filename: '[name].[hash:6].js',
     path: buildPath('./dist'),
@@ -165,22 +175,6 @@ module.exports = {
 
     new ProgressBarPlugin(),
 
-    new HtmlPlugin({
-      filename: 'member-center.html',
-      template: buildPath('src/htmls/member-center.html'),
-      favicon: buildPath('./src/assets/images/favicon.ico'),
-      chuncks: ['member-center'],
-      minify: {
-        collapseWhitespace: true,
-        removeComments: true,
-        removeRedundantAttributes: true,
-        removeScriptTypeAttributes: true,
-        removeStyleLinkTypeAttributes: true,
-        useShortDoctype: true
-      }
-    }),
-
-
     new CssPlugin({
       // Options similar to the same options in webpackOptions.output
       // all options are optional
@@ -191,3 +185,16 @@ module.exports = {
   ]
 
 }
+
+for (let key in entryObj) {
+  if (entryObj.hasOwnProperty(key)) {
+    config.plugins.push(
+      new HtmlPlugin({
+        filename: `${key}.html`,
+        template: buildPath(`src/htmls/${key}.html`),
+        chunks: [`${key}`]
+      })
+    )
+  }
+}
+module.exports = config
