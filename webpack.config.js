@@ -158,11 +158,12 @@ const config = {
   },
 
   optimization: {
-    // splitChunks: {
-    //   // include all types of chunks
-    //   chunks: 'all'
-    // },
-    // minimizer: [new UglifyJsPlugin()],
+    splitChunks: {
+      // include all types of chunks
+      name: 'common',
+      chunks: 'all'
+    },
+    minimizer: [new UglifyJsPlugin()],
   },
 
   plugins: [
@@ -192,7 +193,7 @@ for (let key in entryObj) {
       new HtmlPlugin({
         filename: `${key}.html`,
         template: buildPath(`src/htmls/${key}.html`),
-        chunks: [`${key}`]
+        chunks: ['common', `${key}`]
       })
     )
   }
