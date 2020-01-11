@@ -1,5 +1,5 @@
-let apiHost = 'http://192.168.2.103:8080/'
 // export const apiHost = 'https://api.jiaozi/pay.com.cn/'
+let apiHost = 'https://dev.topdiantop.top/test/'
 
 if (process.env.NODE_ENV === 'production') apiHost = 'https://api.jiaozi/pay.com.cn/'
 

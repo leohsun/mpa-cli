@@ -129,7 +129,7 @@ const config = {
               ['@babel/preset-env',
                 {
                   "targets": {
-                    "browsers": ["last 2 Chrome versions"]
+                    "browsers": ["cover 99.5%"]
                   }
                 }]
             ],

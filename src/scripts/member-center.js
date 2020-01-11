@@ -25,6 +25,7 @@ async function getUserMemberInfo() {
 
 function setHtml(id, html) {
   const tar = document.getElementById(id)
+  console.log(id, '--->', html)
   if (tar) tar.innerHTML = html || '默认'
 }
 
@@ -34,12 +35,12 @@ async function initData() {
   const data = await getUserMemberInfo()
   loader.hide()
   if (!data) return
-  const { brandName, title, bonus, balance, logoUrl, backgroundPicUrl, cardVolumes } = data
-  const data2set = { brandName, title, bonus, balance, levelName }
+  const { brandName, title, bonus, balance, logoUrl, backgroundPicUrl, cardVolumes, levelName } = data
+  const data2set = { brandName, title, bonus, balance: NP.divide(balance, 100) + '元', levelName }
   document.querySelector('#js-card').style.backgroundImage = `url(${backgroundPicUrl})`
   for (let key in data2set) {
     if (data2set.hasOwnProperty(key)) {
-      setHtml(key, data[key])
+      setHtml(key, data2set[key])
       document.querySelector('#logo').src = logoUrl
     }
   }
