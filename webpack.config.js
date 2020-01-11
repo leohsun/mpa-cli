@@ -27,7 +27,7 @@ const entryObj = getEntry(buildPath('src/scripts/**/*.js'))
 const config = {
   entry: entryObj,
   output: {
-    filename: '[name].[hash:6].js',
+    filename: process.env.NODE_ENV === 'dev' ? '[name].js' : '[name].[hash:6].js',
     path: buildPath('./dist'),
     publicPath: process.env.NODE_ENV === 'dev' ? '/' : './',
   },
@@ -134,6 +134,7 @@ const config = {
                 }]
             ],
             "plugins": [
+              ["@babel/plugin-transform-runtime"],
               [
                 "@babel/plugin-proposal-class-properties",
                 {
@@ -155,6 +156,7 @@ const config = {
     host: '0.0.0.0',
     useLocalIp: true,
     open: true,
+    disableHostCheck: true,
   },
 
   optimization: {
@@ -167,19 +169,18 @@ const config = {
   },
 
   plugins: [
-    new CleanWebpackPlugin(),
-
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
       'process.env.DEBUG': JSON.stringify(process.env.DEBUG)
     }),
+    new CleanWebpackPlugin(),
 
     new ProgressBarPlugin(),
 
     new CssPlugin({
       // Options similar to the same options in webpackOptions.output
       // all options are optional
-      filename: '[name].[hash:6].css',
+      filename: process.env.NODE_ENV === 'dev' ? '[name].css' : '[name].[hash:6].css',
       chunkFilename: '[id].css',
       ignoreOrder: false, // Enable to remove warnings about conflicting order
     }),
