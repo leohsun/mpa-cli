@@ -164,8 +164,7 @@ const config = {
 
   plugins: [
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
-      'process.env.DEBUG': JSON.stringify(process.env.DEBUG)
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
     }),
     new CleanWebpackPlugin(),
 
@@ -190,12 +189,12 @@ for (let key in entryObj) {
         template: buildPath(`src/htmls/${key}.html`),
         chunks: ['common', `${key}`],
         minify: {
-          collapseWhitespace: true,
-          removeComments: true,
-          removeRedundantAttributes: true,
-          removeScriptTypeAttributes: true,
-          removeStyleLinkTypeAttributes: true,
-          useShortDoctype: true
+          collapseWhitespace: process.env.NODE_ENV === 'production',
+          removeComments: process.env.NODE_ENV === 'production',
+          removeRedundantAttributes: process.env.NODE_ENV === 'production',
+          removeScriptTypeAttributes: process.env.NODE_ENV === 'production',
+          removeStyleLinkTypeAttributes: process.env.NODE_ENV === 'production',
+          useShortDoctype: process.env.NODE_ENV === 'production'
         }
       })
     )
