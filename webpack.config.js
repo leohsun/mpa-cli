@@ -39,7 +39,7 @@ const config = {
         use: [{
           loader: CssPlugin.loader,
           options: {
-            publicPath: buildPath('dist/css')
+            publicPath: './'
           }
         }, {
           loader: 'postcss-loader',
@@ -69,14 +69,7 @@ const config = {
           {
             loader: CssPlugin.loader,
             options: {
-              publicPath: buildPath('./dist')
-              // publicPath: (resourcePath, context) => {
-              //   // publicPath is the relative path of the resource to the context
-              //   // e.g. for ./css/admin/main.css the publicPath will be ../../
-              //   // while for ./css/main.css the publicPath will be ../
-              //   console.log('resourcePath:', resourcePath)
-              //   return '/';
-              // }
+              publicPath: './'
             }
           },
           // Creates `style` nodes from JS strings
@@ -105,9 +98,9 @@ const config = {
           {
             loader: 'url-loader',
             options: {
-              limit: 8192,
+              limit: 8192, // 8k
               esModule: false, //patch for html-loader
-              outputPath: 'images'
+              outputPath: './images'
             },
           },
         ],
@@ -141,7 +134,8 @@ const config = {
                   "loose": true
                 }
               ], ["transform-async-to-generator"]
-            ]
+            ],
+
           }
         }
       }
@@ -180,7 +174,7 @@ const config = {
     new CssPlugin({
       // Options similar to the same options in webpackOptions.output
       // all options are optional
-      filename: process.env.NODE_ENV === 'dev' ? '[name].css' : '[name].[hash:6].css',
+      filename: process.env.NODE_ENV === 'dev' ? 'css/[name].css' : 'css/[name].[hash:6].css',
       chunkFilename: '[id].css',
       ignoreOrder: false, // Enable to remove warnings about conflicting order
     }),
@@ -194,7 +188,15 @@ for (let key in entryObj) {
       new HtmlPlugin({
         filename: `${key}.html`,
         template: buildPath(`src/htmls/${key}.html`),
-        chunks: ['common', `${key}`]
+        chunks: ['common', `${key}`],
+        minify: {
+          collapseWhitespace: true,
+          removeComments: true,
+          removeRedundantAttributes: true,
+          removeScriptTypeAttributes: true,
+          removeStyleLinkTypeAttributes: true,
+          useShortDoctype: true
+        }
       })
     )
   }
