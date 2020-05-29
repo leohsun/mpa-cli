@@ -12,6 +12,7 @@ const buildPath = path => resolve(__dirname, path)
 
 const existFileNames = getExistFileNames()
 
+let _htmlTitle = 'tmp'
 var questions = [
   {
     type: 'input',
@@ -31,16 +32,25 @@ var questions = [
       if (isExist) {
         return '当前文件名已存在';
       }
+      _htmlTitle = value
       return true;
+    }
+  },
+  {
+    type: 'input',
+    name: 'htmlTitle',
+    message: "请输入页面title",
+    default: function () {
+      return _htmlTitle
     }
   },
 ]
 
 inquirer.prompt(questions).then(answers => {
-  const { fileName } = answers
+  const { fileName, htmlTitle } = answers
   createStyle(fileName)
   createJS(fileName)
-  createHTML(fileName)
+  createHTML(fileName, htmlTitle)
 })
 
 function getExistFileNames() {
@@ -79,10 +89,10 @@ import '../stylus/${fileName}.styl'
   })
 }
 
-function createHTML(fileName) {
+function createHTML(fileName, htmlTitle) {
   const data = readFileSync(buildPath('./tmp.html'), 'utf-8')
   const HTML = new JSDOM(data)
-  HTML.window.document.title = fileName
+  HTML.window.document.title = htmlTitle
   HTML.window.document.body.className = fileName
   const htmlData = HTML.serialize()
   writeFile(buildPath('../src/htmls/' + fileName + '.html'), htmlData, (err) => {
