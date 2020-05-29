@@ -1,5 +1,4 @@
 const { resolve, basename, extname } = require('path')
-
 const HtmlPlugin = require('html-webpack-plugin')
 const CssPlugin = require('mini-css-extract-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
@@ -8,9 +7,7 @@ const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 const webpack = require('webpack')
 const glob = require('glob')
 
-
-const buildPath = (path) => resolve(__dirname, path)
-console.log('process.env.NODE_ENV -->', process.env.NODE_ENV)
+const buildPath = path => resolve(__dirname, path)
 
 function getEntry(globPath) {
   var files = glob.sync(globPath);
@@ -23,13 +20,15 @@ function getEntry(globPath) {
 }
 
 const entryObj = getEntry(buildPath('src/scripts/**/*.js'))
+const isDev = process.env.NODE_ENV === 'dev'
+const isProd = process.env.NODE_ENV === 'production'
 
 const config = {
   entry: entryObj,
   output: {
-    filename: process.env.NODE_ENV === 'dev' ? '[name].js' : '[name].[hash:6].js',
+    filename: isProd ? 'scripts/[name].[hash:6].js' : 'scripts/[name].js',
     path: buildPath('./dist'),
-    publicPath: process.env.NODE_ENV === 'dev' ? '/' : './',
+    publicPath: isDev ? '/' : './',
   },
 
   module: {
@@ -37,10 +36,7 @@ const config = {
       {
         test: /\.css$/,
         use: [{
-          loader: CssPlugin.loader,
-          options: {
-            publicPath: './'
-          }
+          loader: isProd ? CssPlugin.loader : 'style-loader',
         }, {
           loader: 'postcss-loader',
           options: {
@@ -67,10 +63,7 @@ const config = {
         use: [
           // extract css
           {
-            loader: CssPlugin.loader,
-            options: {
-              publicPath: './'
-            }
+            loader: isProd ? CssPlugin.loader : 'style-loader',
           },
           // Creates `style` nodes from JS strings
           // 'style-loader',
@@ -155,9 +148,18 @@ const config = {
 
   optimization: {
     splitChunks: {
-      // include all types of chunks
-      name: 'common',
-      chunks: 'all'
+      cacheGroups: {
+        styles: {
+          name: 'common',
+          test: /\.(styl|css)$/,
+          chunks: 'all',
+        },
+        scripts: {
+          test: /\.js$/,
+          name: 'common',
+          chunks: 'all',
+        }
+      }
     },
     minimizer: [new UglifyJsPlugin()],
   },
@@ -173,12 +175,11 @@ const config = {
     new CssPlugin({
       // Options similar to the same options in webpackOptions.output
       // all options are optional
-      filename: process.env.NODE_ENV === 'dev' ? 'css/[name].css' : 'css/[name].[hash:6].css',
+      filename: isDev ? 'css/[name].css' : 'css/[name].[hash:6].css',
       chunkFilename: '[id].css',
       ignoreOrder: false, // Enable to remove warnings about conflicting order
     }),
   ]
-
 }
 
 for (let key in entryObj) {
@@ -189,15 +190,16 @@ for (let key in entryObj) {
         template: buildPath(`src/htmls/${key}.html`),
         chunks: ['common', `${key}`],
         minify: {
-          collapseWhitespace: process.env.NODE_ENV === 'production',
-          removeComments: process.env.NODE_ENV === 'production',
-          removeRedundantAttributes: process.env.NODE_ENV === 'production',
-          removeScriptTypeAttributes: process.env.NODE_ENV === 'production',
-          removeStyleLinkTypeAttributes: process.env.NODE_ENV === 'production',
-          useShortDoctype: process.env.NODE_ENV === 'production'
+          collapseWhitespace: isProd,
+          removeComments: isProd,
+          removeRedundantAttributes: isProd,
+          removeScriptTypeAttributes: isProd,
+          removeStyleLinkTypeAttributes: isProd,
+          useShortDoctype: isProd
         }
       })
     )
   }
 }
+
 module.exports = config

@@ -1,5 +1,3 @@
-
-
 export function message(msg) {
   const el = document.createElement('div')
   el.className = 'layer__message'

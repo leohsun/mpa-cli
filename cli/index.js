@@ -66,7 +66,10 @@ function createStyle(fileName) {
 }
 
 function createJS(fileName) {
-  const data = readFileSync(buildPath('./tmp.js'))
+  let data = readFileSync(buildPath('./tmp.js'))
+  data += `
+import '../stylus/${fileName}.styl'
+  `
   writeFile(buildPath('../src/scripts/' + fileName + '.js'), data, (err) => {
     if (!err) {
       console.log(chalk.green('创建js文件成功...'))

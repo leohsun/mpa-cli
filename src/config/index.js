@@ -1,5 +1,7 @@
 // export const apiHost = 'https://api.jiaozi/pay.com.cn/'
-let apiHost = 'https://dev.topdiantop.top/test/'
+// let apiHost = 'https://dev.topdiantop.top/test/'
+let apiHost = 'http://dfl.natapp4.cc/'
+
 
 if (process.env.NODE_ENV === 'production') apiHost = 'https://api.jiaozi/pay.com.cn/'
 
