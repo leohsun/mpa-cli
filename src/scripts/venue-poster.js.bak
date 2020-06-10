@@ -1,0 +1,1322 @@
+import '../stylus/venue-poster.styl'
+
+const dataExist = [
+  {
+    "merchant": "福清教育培训中心",
+    "owner": "宋爱梅",
+    "description": "已由福清分会场提交注册"
+  },
+  {
+    "merchant": "泉州手机配件商城",
+    "owner": "王志芳",
+    "description": "已由泉州分会场提交注册"
+  },
+  {
+    "merchant": "厦门电子智能家居商城",
+    "owner": "于光",
+    "description": "已由厦门分会场提交注册"
+  },
+  {
+    "merchant": "厦门全铝家具定制",
+    "owner": "贾隽仙",
+    "description": "已由厦门分会场提交注册"
+  },
+  {
+    "merchant": "攀枝花芒果商城",
+    "owner": "贾燕青",
+    "description": "已由攀枝花分会场提交注册"
+  },
+  {
+    "merchant": "福清日用品商城",
+    "owner": "刘振杰",
+    "description": "已由福清分会场提交注册"
+  },
+  {
+    "merchant": "福建化妆品商城",
+    "owner": "郭卫东",
+    "description": "已由福建分会场提交注册"
+  },
+  {
+    "merchant": "唯衣服装店",
+    "owner": "崔红宇",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "给您好看服装店",
+    "owner": "马福平",
+    "description": "已由成都分会场提交注册"
+  },
+  {
+    "merchant": "女子百合服装店",
+    "owner": "冯红",
+    "description": "已由成都分会场提交注册"
+  },
+  {
+    "merchant": "四季美人服装店",
+    "owner": "崔敬伟",
+    "description": "已由成都分会场提交注册"
+  },
+  {
+    "merchant": "蝶幻服装店",
+    "owner": "穆增志",
+    "description": "已由成都分会场提交注册"
+  },
+  {
+    "merchant": "衣炫传说服装店",
+    "owner": "谢志威",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "迷妮服饰服装店",
+    "owner": "吕金起",
+    "description": "已由成都分会场提交注册"
+  },
+  {
+    "merchant": "左岸服装店",
+    "owner": "韩云庆",
+    "description": "已由铜梁分会场提交注册"
+  },
+  {
+    "merchant": "倩影服装店",
+    "owner": "鲁全福",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "衣加一服装店",
+    "owner": "郭建立",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "时尚秀服装店",
+    "owner": "郝连水",
+    "description": "已由成都分会场提交注册"
+  },
+  {
+    "merchant": "红雨亭服装店",
+    "owner": "闫智胜",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "唯衣驿站服装店",
+    "owner": "王波刚",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "臻娅服装店",
+    "owner": "李成勇",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "惠妃服装店",
+    "owner": "张荣毅",
+    "description": "已由华莱分会场提交注册"
+  },
+  {
+    "merchant": "棠恋服装店",
+    "owner": "刘新俊",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "森林服装店",
+    "owner": "陈峰峰",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "道奇服装店",
+    "owner": "杨刚强",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "经典先生服装店",
+    "owner": "黄家军",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "曼坤服装店",
+    "owner": "赵龙平",
+    "description": "已由成都分会场提交注册"
+  },
+  {
+    "merchant": "三柔服装店",
+    "owner": "吴德保",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "真馨服装店",
+    "owner": "周庆东",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "喜顺服装店",
+    "owner": "徐斌文",
+    "description": "已由亚健分会场提交注册"
+  },
+  {
+    "merchant": "诚悦服装店",
+    "owner": "王辉辉",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "三顺服装店",
+    "owner": "李良力",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "尊灿服装店",
+    "owner": "张玉明",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "轩妮思服装店",
+    "owner": "刘俊永",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "万达凯服装店",
+    "owner": "陈立健",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "欧莱媂服装店",
+    "owner": "杨浩世",
+    "description": "已由宜春分会场提交注册"
+  },
+  {
+    "merchant": "宇韵服装店",
+    "owner": "高天广",
+    "description": "已由道路分会场提交注册"
+  },
+  {
+    "merchant": "芳耀服装店",
+    "owner": "林宏志",
+    "description": "已由特种分会场提交注册"
+  },
+  {
+    "merchant": "芭莎女王服装店",
+    "owner": "罗子义",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "紫妍服装店",
+    "owner": "郑金兴",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "华戈服装店",
+    "owner": "梁健良",
+    "description": "已由温室分会场提交注册"
+  },
+  {
+    "merchant": "麻凡服装店",
+    "owner": "谢一海",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "胜天晓服装店",
+    "owner": "宋忠山",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "栖居服装店",
+    "owner": "唐洪仁",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "重庆百货网",
+    "owner": "王江波",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "四川农产品批发",
+    "owner": "李福宁",
+    "description": "已由成都分会场提交注册"
+  },
+  {
+    "merchant": "四川咖啡馆",
+    "owner": "张祥贵",
+    "description": "已由成都分会场提交注册"
+  },
+  {
+    "merchant": "成都纹身刺青Tattoo",
+    "owner": "刘中福",
+    "description": "已由成都分会场提交注册"
+  },
+  {
+    "merchant": "成都腌制食品",
+    "owner": "陈正生",
+    "description": "已由成都分会场提交注册"
+  },
+  {
+    "merchant": "重庆炒菜干锅",
+    "owner": "杨振龙",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "成都小郡肝砂锅串串",
+    "owner": "王勇元",
+    "description": "已由成都分会场提交注册"
+  },
+  {
+    "merchant": "铜梁诊所",
+    "owner": "李耀全",
+    "description": "已由铜梁分会场提交注册"
+  },
+  {
+    "merchant": "重庆针织品批发",
+    "owner": "张春国",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "重庆农村土特产平台",
+    "owner": "刘大胜",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "四川锡纸花甲米线",
+    "owner": "陈宁学",
+    "description": "已由成都分会场提交注册"
+  },
+  {
+    "merchant": "重庆诊所",
+    "owner": "杨亮祥",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "重庆团购订单",
+    "owner": "马宇才",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "重庆诊所服务平台",
+    "owner": "朱兴发",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "华莱健黑茶分销平台",
+    "owner": "胡宝武",
+    "description": "已由华莱分会场提交注册"
+  },
+  {
+    "merchant": "重庆换油修波箱",
+    "owner": "郭少新",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "重庆民宿预订",
+    "owner": "何剑利",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "重庆餐饮美食城",
+    "owner": "高云清",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "重庆保健品商城",
+    "owner": "王学飞",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "成都艺体培训",
+    "owner": "李仁彬",
+    "description": "已由成都分会场提交注册"
+  },
+  {
+    "merchant": "重庆健康平台",
+    "owner": "张涛富",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "重庆青少年视力矫正中心",
+    "owner": "刘瑞顺",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "亚健康私人定制",
+    "owner": "陈飞信",
+    "description": "已由亚健分会场提交注册"
+  },
+  {
+    "merchant": "重庆火锅配套",
+    "owner": "杨鹏子",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "重庆健康养生平台",
+    "owner": "唐安杰",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "重庆少儿艺术",
+    "owner": "王亚涛",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "重庆豌豆杂酱面食",
+    "owner": "李泽昌",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "重庆冷柜厨具",
+    "owner": "张世成",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "宜春特产商城",
+    "owner": "刘汉康",
+    "description": "已由宜春分会场提交注册"
+  },
+  {
+    "merchant": "道路交通设施设备",
+    "owner": "陈达星",
+    "description": "已由道路分会场提交注册"
+  },
+  {
+    "merchant": "特种设备租赁",
+    "owner": "杨卫光",
+    "description": "已由特种分会场提交注册"
+  },
+  {
+    "merchant": "重庆药品零售",
+    "owner": "黄利天",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "重庆连锁美食城",
+    "owner": "赵胜达",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "温室大棚材料配件平台",
+    "owner": "吴敏安",
+    "description": "已由温室分会场提交注册"
+  },
+  {
+    "merchant": "重庆调料批发商城",
+    "owner": "王群岩",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "重庆文具销售",
+    "owner": "李松中",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "重庆汽修汽配",
+    "owner": "张克茂",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "重庆保健养生",
+    "owner": "刘清进",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "三明外卖网",
+    "owner": "陈长林",
+    "description": "已由三明分会场提交注册"
+  },
+  {
+    "merchant": "永川餐饮商城网",
+    "owner": "杨嘉有",
+    "description": "已由永川分会场提交注册"
+  },
+  {
+    "merchant": "中式快餐连锁平台",
+    "owner": "郭红坚",
+    "description": "已由中式分会场提交注册"
+  },
+  {
+    "merchant": "水果批发零售全国包邮",
+    "owner": "何山和",
+    "description": "已由水果分会场提交注册"
+  },
+  {
+    "merchant": "成都牛肉馆",
+    "owner": "高贤彪",
+    "description": "已由成都分会场提交注册"
+  },
+  {
+    "merchant": "鼻炎咽炎治疗培训",
+    "owner": "林阳博",
+    "description": "已由鼻炎分会场提交注册"
+  },
+  {
+    "merchant": "重庆东北特产",
+    "owner": "罗乐诚",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "川渝云支付消费分红",
+    "owner": "郑锋先",
+    "description": "已由川渝分会场提交注册"
+  },
+  {
+    "merchant": "重庆泳装",
+    "owner": "梁智敬",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "中医疑难杂专业平台",
+    "owner": "谢青震",
+    "description": "已由中医分会场提交注册"
+  },
+  {
+    "merchant": "土特产食品购物商城",
+    "owner": "宋跃振",
+    "description": "已由土特分会场提交注册"
+  },
+  {
+    "merchant": "万州医药服务网",
+    "owner": "王元壮",
+    "description": "已由万州分会场提交注册"
+  },
+  {
+    "merchant": "万州同城购",
+    "owner": "李南会",
+    "description": "已由万州分会场提交注册"
+  },
+  {
+    "merchant": "万州化妆品商城",
+    "owner": "张武思",
+    "description": "已由万州分会场提交注册"
+  },
+  {
+    "merchant": "重庆百货商城网",
+    "owner": "刘广群",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "重庆豪车配件",
+    "owner": "陈思豪",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "重庆豪车配件",
+    "owner": "杨雄心",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "重庆婚礼策划平台",
+    "owner": "杨锦邦",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "重庆蛋糕甜品订购",
+    "owner": "黄威承",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "重庆针灸培训",
+    "owner": "赵启乐",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "重庆24小时外卖订购",
+    "owner": "吴昌绍",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "重庆家居用品",
+    "owner": "周铭功",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "重庆口腔诊所平台",
+    "owner": "徐维松",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "重庆早餐小吃连锁",
+    "owner": "孙义善",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "重庆外卖配送",
+    "owner": "马宗厚",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "重庆纹绣美甲美睫商城网",
+    "owner": "王英庆",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "重庆五金建材销售平台",
+    "owner": "李凯磊",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "重庆汉堡奶茶",
+    "owner": "张鸿民",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "成都泽明家常面",
+    "owner": "刘森友",
+    "description": "已由成都分会场提交注册"
+  },
+  {
+    "merchant": "成都专治疑难杂症",
+    "owner": "陈超裕",
+    "description": "已由成都分会场提交注册"
+  },
+  {
+    "merchant": "成都牛奶配送",
+    "owner": "杨坚河",
+    "description": "已由成都分会场提交注册"
+  },
+  {
+    "merchant": "成都纯酿酒",
+    "owner": "罗旭哲",
+    "description": "已由成都分会场提交注册"
+  },
+  {
+    "merchant": "成都商业地产写字楼商铺租售",
+    "owner": "郑政江",
+    "description": "已由成都分会场提交注册"
+  },
+  {
+    "merchant": "重庆图书平台",
+    "owner": "梁传超",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "潼城服务网",
+    "owner": "谢康浩",
+    "description": "已由潼城分会场提交注册"
+  },
+  {
+    "merchant": "成都正宗小面",
+    "owner": "宋继亮",
+    "description": "已由成都分会场提交注册"
+  },
+  {
+    "merchant": "重庆婚礼策划平台个人占词",
+    "owner": "唐翔政",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "重庆手机剧",
+    "owner": "王远谦",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "富顺手工豆腐",
+    "owner": "李力亨",
+    "description": "已由富顺分会场提交注册"
+  },
+  {
+    "merchant": "攀枝花农产品批发",
+    "owner": "张进奇",
+    "description": "已由攀枝花分会场提交注册"
+  },
+  {
+    "merchant": "攀枝花建材商城",
+    "owner": "王泉固",
+    "description": "已由攀枝花分会场提交注册"
+  },
+  {
+    "merchant": "攀枝花水果批发",
+    "owner": "李茂之",
+    "description": "已由攀枝花分会场提交注册"
+  },
+  {
+    "merchant": "攀枝花健康平台",
+    "owner": "张毅轮",
+    "description": "已由攀枝花分会场提交注册"
+  },
+  {
+    "merchant": "攀枝花速冻食品商城",
+    "owner": "刘富翰",
+    "description": "已由攀枝花分会场提交注册"
+  },
+  {
+    "merchant": "福州小儿推拿",
+    "owner": "陈博朗",
+    "description": "已由福州分会场提交注册"
+  },
+  {
+    "merchant": "福建小儿推拿",
+    "owner": "杨霖伯",
+    "description": "已由福建分会场提交注册"
+  },
+  {
+    "merchant": "中医秘方养生调理",
+    "owner": "周顺宏",
+    "description": "已由中医分会场提交注册"
+  },
+  {
+    "merchant": "西昌美容美发平台",
+    "owner": "徐信言",
+    "description": "已由西昌分会场提交注册"
+  },
+  {
+    "merchant": "西昌宸芮益品服饰商城",
+    "owner": "孙凡若",
+    "description": "已由西昌分会场提交注册"
+  },
+  {
+    "merchant": "重庆美容服务",
+    "owner": "马豪鸣",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "万州粮油批发",
+    "owner": "朱树朋",
+    "description": "已由万州分会场提交注册"
+  },
+  {
+    "merchant": "钵钵鸡名小吃",
+    "owner": "胡和斌",
+    "description": "已由成都分会场提交注册"
+  },
+  {
+    "merchant": "重庆家居纺织用品",
+    "owner": "郭恩梁",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "西昌饮食服务平台",
+    "owner": "何向栋",
+    "description": "已由西昌分会场提交注册"
+  },
+  {
+    "merchant": "凉山南红玉商城网",
+    "owner": "高道维",
+    "description": "已由凉山分会场提交注册"
+  },
+  {
+    "merchant": "攀枝花物流运输",
+    "owner": "林川启",
+    "description": "已由攀枝花分会场提交注册"
+  },
+  {
+    "merchant": "绵阳服装商城",
+    "owner": "罗彬克",
+    "description": "已由绵阳分会场提交注册"
+  },
+  {
+    "merchant": "绵阳服装批发",
+    "owner": "郑柏伦",
+    "description": "已由绵阳分会场提交注册"
+  },
+  {
+    "merchant": "绵阳配送",
+    "owner": "梁磊翔",
+    "description": "已由绵阳分会场提交注册"
+  },
+  {
+    "merchant": "绵阳艾灸",
+    "owner": "谢敬旭",
+    "description": "已由绵阳分会场提交注册"
+  },
+  {
+    "merchant": "互联网舆情平台",
+    "owner": "王书鹏",
+    "description": "已由互联分会场提交注册"
+  },
+  {
+    "merchant": "西昌海鲜冻品",
+    "owner": "李鸣泽",
+    "description": "已由西昌分会场提交注册"
+  },
+  {
+    "merchant": "重庆特色小吃美食",
+    "owner": "张芳晨",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "重庆特色商城",
+    "owner": "刘培辰",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "重庆鲜花园艺",
+    "owner": "陈全士",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "广安健康养生产业",
+    "owner": "杨炳以",
+    "description": "已由广安分会场提交注册"
+  },
+  {
+    "merchant": "万州牛肉",
+    "owner": "杨基建",
+    "description": "已由万州分会场提交注册"
+  },
+  {
+    "merchant": "开州健康养生",
+    "owner": "杨冠家",
+    "description": "已由开州分会场提交注册"
+  },
+  {
+    "merchant": "东方雲甄",
+    "owner": "黄晖致",
+    "description": "已由东方分会场提交注册"
+  },
+  {
+    "merchant": "眉山维维超市",
+    "owner": "赵京树",
+    "description": "已由眉山分会场提交注册"
+  },
+  {
+    "merchant": "乐山保健养生",
+    "owner": "吴欣炎",
+    "description": "已由乐山分会场提交注册"
+  },
+  {
+    "merchant": "泸州美食城",
+    "owner": "周廷德",
+    "description": "已由泸州分会场提交注册"
+  },
+  {
+    "merchant": "泸州健康白酒网",
+    "owner": "徐哲行",
+    "description": "已由泸州分会场提交注册"
+  },
+  {
+    "merchant": "泸州建材商城网",
+    "owner": "孙保时",
+    "description": "已由泸州分会场提交注册"
+  },
+  {
+    "merchant": "泸州胖妹盆盆面",
+    "owner": "马秋泰",
+    "description": "已由泸州分会场提交注册"
+  },
+  {
+    "merchant": "四川家装维修",
+    "owner": "王君盛",
+    "description": "已由成都分会场提交注册"
+  },
+  {
+    "merchant": "宜宾饮料",
+    "owner": "李劲雄",
+    "description": "已由宜宾分会场提交注册"
+  },
+  {
+    "merchant": "大合购物商城",
+    "owner": "张栋琛",
+    "description": "已由大合分会场提交注册"
+  },
+  {
+    "merchant": "大合旺铺",
+    "owner": "刘仲钧",
+    "description": "已由大合分会场提交注册"
+  },
+  {
+    "merchant": "重庆餐饮美食商城",
+    "owner": "陈权",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "永川通讯商城",
+    "owner": "杨奇",
+    "description": "已由永川分会场提交注册"
+  },
+  {
+    "merchant": "重庆健康养生",
+    "owner": "王礼",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "重庆开锁换锁服务中心",
+    "owner": "李楠",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "成都纯酿酒",
+    "owner": "张炜",
+    "description": "已由成都分会场提交注册"
+  },
+  {
+    "merchant": "万州餐饮",
+    "owner": "刘友",
+    "description": "已由万州分会场提交注册"
+  },
+  {
+    "merchant": "万州文体办公用品商城",
+    "owner": "陈年",
+    "description": "已由万州分会场提交注册"
+  },
+  {
+    "merchant": "绵阳服装商城",
+    "owner": "杨震",
+    "description": "已由绵阳分会场提交注册"
+  },
+  {
+    "merchant": "重庆无公害农产品",
+    "owner": "王鑫",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "重庆清洗服务",
+    "owner": "王雷",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "永川汽保",
+    "owner": "李兵",
+    "description": "已由永川分会场提交注册"
+  },
+  {
+    "merchant": "重庆医药城",
+    "owner": "张万",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "大竹土特产商城",
+    "owner": "刘星",
+    "description": "已由大竹分会场提交注册"
+  },
+  {
+    "merchant": "大竹五金电器",
+    "owner": "陈骏",
+    "description": "已由大竹分会场提交注册"
+  },
+  {
+    "merchant": "乐山餐饮美食",
+    "owner": "杨伦",
+    "description": "已由乐山分会场提交注册"
+  },
+  {
+    "merchant": "重庆生活超市",
+    "owner": "赵绍",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "重庆特色商城",
+    "owner": "吴麟",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "泸州医药网",
+    "owner": "王雨",
+    "description": "已由泸州分会场提交注册"
+  },
+  {
+    "merchant": "自贡建材城",
+    "owner": "李行",
+    "description": "已由自贡分会场提交注册"
+  },
+  {
+    "merchant": "自贡美食平台",
+    "owner": "张才",
+    "description": "已由自贡分会场提交注册"
+  },
+  {
+    "merchant": "自贡美发",
+    "owner": "刘希",
+    "description": "已由自贡分会场提交注册"
+  },
+  {
+    "merchant": "自贡牛肉汤",
+    "owner": "陈彦",
+    "description": "已由自贡分会场提交注册"
+  },
+  {
+    "merchant": "漳州舞蹈教育培训",
+    "owner": "杨兆",
+    "description": "已由漳州分会场提交注册"
+  },
+  {
+    "merchant": "厦门特色美食商城",
+    "owner": "刘贵",
+    "description": "已由厦门分会场提交注册"
+  },
+  {
+    "merchant": "闽南卤料",
+    "owner": "陈源",
+    "description": "已由闽南分会场提交注册"
+  },
+  {
+    "merchant": "重庆健身网",
+    "owner": "杨有",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "福州建材批发商城",
+    "owner": "林景",
+    "description": "已由福州分会场提交注册"
+  },
+  {
+    "merchant": "福清美食商城",
+    "owner": "罗升",
+    "description": "已由福清分会场提交注册"
+  },
+  {
+    "merchant": "鼓楼外卖",
+    "owner": "郑惠",
+    "description": "已由鼓楼分会场提交注册"
+  },
+  {
+    "merchant": "石狮粮油",
+    "owner": "梁臣",
+    "description": "已由石狮分会场提交注册"
+  },
+  {
+    "merchant": "泉州鲜花预定商城",
+    "owner": "谢慧",
+    "description": "已由泉州分会场提交注册"
+  },
+  {
+    "merchant": "宁德特产商城网",
+    "owner": "宋开",
+    "description": "已由宁德分会场提交注册"
+  },
+  {
+    "merchant": "重庆清洗服务",
+    "owner": "唐章",
+    "description": "已由重庆分会场提交注册"
+  },
+  {
+    "merchant": "闽南母婴用品",
+    "owner": "王润",
+    "description": "已由闽南分会场提交注册"
+  },
+  {
+    "merchant": "厦门装饰商城",
+    "owner": "王高",
+    "description": "已由厦门分会场提交注册"
+  },
+  {
+    "merchant": "晋江美食小吃",
+    "owner": "李佳",
+    "description": "已由晋江分会场提交注册"
+  },
+  {
+    "merchant": "晋江美食商城",
+    "owner": "张虎",
+    "description": "已由晋江分会场提交注册"
+  },
+  {
+    "merchant": "晋江零食城",
+    "owner": "刘根",
+    "description": "已由晋江分会场提交注册"
+  },
+  {
+    "merchant": "厦门美食商城网",
+    "owner": "陈诚",
+    "description": "已由厦门分会场提交注册"
+  },
+  {
+    "merchant": "厦门餐饮美食商城",
+    "owner": "杨夫",
+    "description": "已由厦门分会场提交注册"
+  },
+  {
+    "merchant": "晋江休闲食品商城",
+    "owner": "赵声",
+    "description": "已由晋江分会场提交注册"
+  },
+  {
+    "merchant": "劲宝莱商贸",
+    "owner": "吴冬",
+    "description": "已由劲宝分会场提交注册"
+  },
+  {
+    "merchant": "厦门服饰商城",
+    "owner": "周奎",
+    "description": "已由厦门分会场提交注册"
+  },
+  {
+    "merchant": "福建装修",
+    "owner": "徐扬",
+    "description": "已由福建分会场提交注册"
+  },
+  {
+    "merchant": "晋江鞋服城",
+    "owner": "孙双",
+    "description": "已由晋江分会场提交注册"
+  },
+  {
+    "merchant": "厦门服饰商城",
+    "owner": "马坤",
+    "description": "已由厦门分会场提交注册"
+  },
+  {
+    "merchant": "厦门市茶叶零售批发商城",
+    "owner": "朱镇",
+    "description": "已由厦门分会场提交注册"
+  },
+  {
+    "merchant": "福清餐饮商城",
+    "owner": "胡楚",
+    "description": "已由福清分会场提交注册"
+  },
+  {
+    "merchant": "莆田食品",
+    "owner": "郭水",
+    "description": "已由莆田分会场提交注册"
+  },
+  {
+    "merchant": "厦门民食",
+    "owner": "何铁",
+    "description": "已由厦门分会场提交注册"
+  },
+  {
+    "merchant": "厦门民食",
+    "owner": "高喜",
+    "description": "已由厦门分会场提交注册"
+  },
+  {
+    "merchant": "厦门酒水网",
+    "owner": "林之",
+    "description": "已由厦门分会场提交注册"
+  },
+  {
+    "merchant": "厦门母婴生活",
+    "owner": "罗迪",
+    "description": "已由厦门分会场提交注册"
+  },
+  {
+    "merchant": "厦门餐饮美食平台",
+    "owner": "郑泰",
+    "description": "已由厦门分会场提交注册"
+  },
+  {
+    "merchant": "泉州牛肉肉粽牛肉丸牛肉羹",
+    "owner": "梁方",
+    "description": "已由泉州分会场提交注册"
+  },
+  {
+    "merchant": "厦门民宿商城",
+    "owner": "王同",
+    "description": "已由厦门分会场提交注册"
+  },
+  {
+    "merchant": "福建日用品商城",
+    "owner": "李滨",
+    "description": "已由福建分会场提交注册"
+  },
+  {
+    "merchant": "莆田奶茶商城",
+    "owner": "张邦",
+    "description": "已由莆田分会场提交注册"
+  },
+  {
+    "merchant": "福建电动车商城",
+    "owner": "刘先",
+    "description": "已由福建分会场提交注册"
+  },
+  {
+    "merchant": "黄金车行",
+    "owner": "陈聪",
+    "description": "已由黄金分会场提交注册"
+  },
+  {
+    "merchant": "莆田电动车商城",
+    "owner": "杨朝",
+    "description": "已由莆田分会场提交注册"
+  },
+  {
+    "merchant": "莆田红茶商城",
+    "owner": "刘善",
+    "description": "已由莆田分会场提交注册"
+  },
+  {
+    "merchant": "汇民装饰",
+    "owner": "陈非",
+    "description": "已由汇民分会场提交注册"
+  },
+  {
+    "merchant": "莆田建材商城",
+    "owner": "杨恒",
+    "description": "已由莆田分会场提交注册"
+  },
+  {
+    "merchant": "福建零食商城",
+    "owner": "黄晋",
+    "description": "已由福建分会场提交注册"
+  },
+  {
+    "merchant": "福清建材批发商城",
+    "owner": "王汝",
+    "description": "已由福清分会场提交注册"
+  },
+  {
+    "merchant": "莆田厨具商城",
+    "owner": "李丹",
+    "description": "已由莆田分会场提交注册"
+  },
+  {
+    "merchant": "福清电器商城",
+    "owner": "张为",
+    "description": "已由福清分会场提交注册"
+  },
+  {
+    "merchant": "莆田鞋业商城",
+    "owner": "刘晨",
+    "description": "已由莆田分会场提交注册"
+  },
+  {
+    "merchant": "福建餐饮糕点美食商城",
+    "owner": "陈乃",
+    "description": "已由福建分会场提交注册"
+  },
+  {
+    "merchant": "全国运输商城",
+    "owner": "杨秀",
+    "description": "已由全国分会场提交注册"
+  },
+  {
+    "merchant": "新疆和田仔玉",
+    "owner": "朱岩",
+    "description": "已由新疆分会场提交注册"
+  },
+  {
+    "merchant": "福建有机生态农场",
+    "owner": "胡辰",
+    "description": "已由福建分会场提交注册"
+  }
+]
+
+let province = '全国'
+
+const minutesEl = document.querySelector('#js-minutes')
+const secondsEl = document.querySelector('#js-seconds')
+const dateEl = document.querySelector('#js-date')
+
+
+function getProvinceFromAmap(lnglat) {
+  AMap.plugin('AMap.Geolocation', function () {
+    var geolocation = new AMap.Geolocation({
+      // 是否使用高精度定位，默认：true
+      enableHighAccuracy: true,
+      // 设置定位超时时间，默认：无穷大
+      timeout: 10000,
+      // 定位按钮的停靠位置的偏移量，默认：Pixel(10, 20)
+      buttonOffset: new AMap.Pixel(10, 20),
+      //  定位成功后调整地图视野范围使定位位置及精度范围视野内可见，默认：false
+      zoomToAccuracy: true,
+      //  定位按钮的排放位置,  RB表示右下
+      buttonPosition: 'RB'
+    })
+
+    geolocation.getCurrentPosition()
+    AMap.event.addListener(geolocation, 'complete', onComplete)
+    AMap.event.addListener(geolocation, 'error', onError)
+
+    function onComplete({ addressComponent }) {
+      // data是具体的定位信息
+      province = addressComponent.province.replace(/省/, '')
+      document.querySelector('#js-location').innerText = province
+    }
+
+    function onError(data) {
+      // 定位出错
+      console.log('error-->', data)
+      document.querySelector('#js-location').innerText = province
+    }
+  })
+}
+
+function generateList(dom, data, unshift = false) {
+  const fragment = new DocumentFragment()
+  data.forEach(data => {
+    const liEl = document.createElement('li')
+    liEl.className = 'venue-poster__list-item  venue-poster__gird-03'
+    for (let key in data) {
+      if (data.hasOwnProperty(key)) {
+        const spanEl = document.createElement('span')
+        spanEl.innerText = data[key]
+        liEl.appendChild(spanEl)
+      }
+      fragment.appendChild(liEl)
+    }
+
+    if (unshift) dom.insertBefore(fragment, dom.firstChild)
+    else dom.appendChild(fragment)
+
+  })
+
+
+}
+
+function updateTimeView(rawSeconds) {
+  const minutes = parseInt(rawSeconds / 60)
+  const seconds = rawSeconds % 60
+  minutesEl.innerText = minutes
+  secondsEl.innerText = seconds
+}
+
+function timeCountDown(minutes = 40) {
+  const totalSeconds = minutes * 60
+  let currentSeconds = totalSeconds
+  clearInterval(window.timer)
+  window.timer = setInterval(() => {
+    currentSeconds--
+    updateTimeView(currentSeconds)
+    if (currentSeconds == 0) return clearInterval(window.timer)
+  }, 1000)
+}
+
+function fillZero(num) {
+  return num > 9 ? num : '0' + num
+}
+
+function getDate() {
+  const date = new Date()
+  const year = date.getFullYear()
+  const month = date.getMonth() + 1
+  const day = date.getDate()
+  dateEl.innerText = `${year}年${fillZero(month)}月${fillZero(day)}`
+}
+
+
+
+// step 01 get province
+getProvinceFromAmap()
+
+getDate()
+
+// step 02 count down time
+timeCountDown()
+
+
+document.querySelector('#js-audio').play()
+
+
+//  action submit by user
+generateList(document.querySelector('#js-list-all'), dataExist)
+
+const submitBtn = document.querySelector('#js-submit')
+
+submitBtn.onclick = function () {
+  const merchantEl = document.querySelector('#js-merchant')
+  const ownerEl = document.querySelector('#js-owner')
+  const merchant = merchantEl.value
+  const owner = ownerEl.value
+  if (!merchant || !owner) return
+  const description = `已由${province}分会场、保护5分钟`
+  const data = [{ merchant, owner, description }]
+  generateList(document.querySelector('#js-list-current'), data, true)
+  merchantEl.value = ownerEl.value = ''
+}
+
+// action edit by user
+
+document.body.onclick = function (e) {
+  const tar = e.target
+  if (tar.classList.contains('venue-poster__editable')) {
+    const inputEl = document.createElement('input')
+    inputEl.className = 'venue-poster__editor'
+    const curText = tar.innerText
+    inputEl.style.width = curText.length + 'em'
+    inputEl.value = curText
+
+    tar.innerHTML = ''
+    tar.appendChild(inputEl)
+    inputEl.focus()
+    inputEl.onblur = function () {
+      tar.innerText = this.value
+    }
+
+    inputEl.oninput = function (e) {
+      const _width = this.value.length > 0 ? this.value.length : curText.length
+      this.style.width = _width + 'em'
+    }
+  }
+}

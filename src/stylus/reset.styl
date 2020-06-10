@@ -94,57 +94,8 @@ Explain:		Clearfix（简写cl）避免因子元素浮动而导致的父元素高
 .cl, .clearfix
   zoom 1
 
-ffc-row(main = space-around, cross = center)
-  display flex
-  justify-content main
-  align-items cross
-
-ffc-col(main = space-around, cross = center)
-  ffc-row(main, cross)
-  flex-direction column
-
-border-box()
-  box-sizing border-box
-
-text-center()
-  text-align center
-
-radius()
-  border-radius 1.6vw
-
-btn()
-  background-color #6236FF
-  margin 8vw auto
-  display block
-  color #ffffff
-  font-size 16px
-  height 11.7333vw
-  line-height 11.7333vw
-  width 92vw
-  radius()
-  border-box()
-
-page-header()
-  background-color #ffffff
-  font-size 17px
-  padding 4.2667vw
-  margin-bottom 3.2vw
-
-  h1
-    height 5.3333vw
-    line-height 5.3333vw
-    border-box()
-    text-center()
-    color #333333
-
-  div
-    float left
-    display inline-block
-    width 8vw
-    height 8vw
-    background url('../images/arrow-left.png') no-repeat
-    background-size 5.3333vw 5.3333vw
-    background-position center center
+i
+  font-style normal
 
 .loading
   position fixed

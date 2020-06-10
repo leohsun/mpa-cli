@@ -50,14 +50,28 @@ const config = {
         }, 'css-loader'],
       },
       {
-        test: /\.(html)$/,
-        use: {
-          loader: 'html-loader',
-          options: {
-            attrs: [':src'],
-          }
-        }
+        test: /\.ejs$/, use: [
+          {
+            loader: 'html-loader',
+            options: {
+              interpolate: true,
+              attrs: ['img:src'],
+              outputPath: 'htmls'
+            }
+          },
+        ]
       },
+      // {
+      //   test: /\.(html)$/,
+      //   use: [{
+      //     loader: 'html-loader',
+      //     options: {
+      //       interpolate: true,
+      //       attrs: ['img:src'],
+      //     }
+      //   },
+      //   ]
+      // },
       {
         test: /\.styl$/i,
         use: [
@@ -98,13 +112,14 @@ const config = {
           },
         ],
       },
-      // {
-      //   test: /\.(ttf)$/i,
-      //   loader: 'file-loader',
-      //   options: {
-      //     outputPath: 'images'
-      //   }
-      // },
+      {
+        test: /\.mp3$/i,
+        loader: 'file-loader',
+        options: {
+          outputPath: './sounds',
+          esModule: false,
+        },
+      },
       {
         test: /\.m?js$/,
         exclude: /(node_modules)/,
@@ -138,7 +153,7 @@ const config = {
   devServer: {
     contentBase: buildPath('./dist'),
     compress: true,
-    port: 9009,
+    port: 8888,
     hot: true,
     host: '0.0.0.0',
     useLocalIp: true,
@@ -175,7 +190,7 @@ const config = {
     new CssPlugin({
       // Options similar to the same options in webpackOptions.output
       // all options are optional
-      filename: isDev ? 'css/[name].css' : 'css/[name].[hash:6].css',
+      filename: isDev ? '[name].css' : '[name].[hash:6].css',
       chunkFilename: '[id].css',
       ignoreOrder: false, // Enable to remove warnings about conflicting order
     }),

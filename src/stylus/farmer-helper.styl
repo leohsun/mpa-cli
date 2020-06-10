@@ -1,0 +1,274 @@
+@import './reset'
+@import './reset'
+@import './layout'
+
+.farmer-helper
+  min-height 100vh
+  position relative
+  font-size 14px
+  background #FDEED6 url('../assets/images/farmer-helper/page_bg.png') repeat
+
+  a
+    display block
+    font-size 0
+
+  img
+    display inline-block
+
+  &__hot
+    position relative
+    background url('../assets/images/farmer-helper/hot_bg.png') no-repeat
+    background-size contain
+    background-position center top
+    padding-top 72vw
+    border-box()
+
+    &-section
+      background-color #029D72
+      padding 0 3vw
+      margin 0 3vw 5vw
+      border-radius 10px
+
+    &-list
+      display grid
+      grid-template-columns 1fr 1fr
+      padding 0 4vw
+      grid-column-gap 2vw
+      grid-row-gap 3vw
+
+      .farmer-helper__video-container
+        box-shadow 0 0 1vw 0 #0F6C51
+
+      .farmer-helper__video-mask
+        border 2px solid white
+
+        .farmer-helper__play-btn
+          background-size 8vw 8vw
+
+  &__hot-tag
+    position absolute
+    width 100%
+    top 53vw
+    z-index 9
+
+    img
+      position absolute
+      width 100%
+      height auto
+      z-index 1
+
+    &::after
+      content ''
+      position absolute
+      left 6vw
+      top 10vw
+      height 6vw
+      width 88vw
+      background-color #fff
+      border-top-left-radius 4vw
+      border-top-right-radius 4vw
+
+  &__video
+    &-container
+      overflow hidden
+      border-radius 4vw
+      position relative
+      border-box()
+      background-color #72BE87
+      padding 2vw 1vw
+
+      &--hot
+        position relative
+        background white
+        background-size cover
+        background-position center
+        // height 62vw
+        border-top-right-radius 0
+        border-top-left-radius 0
+        top -4vw
+        padding 6vw 6vw 6vw
+
+        .farmer-helper__video-mask
+          height 40vw
+          border-radius 4vw
+
+        .farmer-helper__video-title
+          color #72513A
+
+      &--recommend
+        height 38vw
+        padding-bottom 3vw
+        border 2px solid #ffffff
+        padding 0
+
+        .farmer-helper__video-mask
+          background-color rgba(0, 0, 0, 0.1)
+
+        .farmer-helper__play-btn
+          background-image none !important
+
+    &-title
+      color #ffffff
+      padding-top 2vw
+      font-size 12px
+      text-ellipsis(2)
+
+      &-container
+        position relative
+        height 12vw
+        width 60vw
+        height 40vw
+        background-color #E99623
+        border-radius 50%
+        position relative
+        left 50%
+        top -7vw
+        transform translateX(-50%)
+
+        &--darken
+          background-color #BFCFD2
+
+        &::after
+          content ''
+          position absolute
+          top -6vw
+          left 50%
+          transform translateX(-50%)
+          width 10vw
+          height 10vw
+          background url('../assets/images/farmer-helper/special-product/play-btn.png') no-repeat
+          background-size cover
+
+        .farmer-helper__video-title
+          padding 6vw 12vw 0
+
+    &-mask
+      position relative
+      width 100%
+      ffc-row()
+      border-box()
+      height 26vw
+      border-radius 4vw
+      overflow hidden
+      background-color rgba(0, 0, 0, 0.28)
+
+      img
+        width 100%
+        height 100%
+
+  &__play-btn
+    position absolute
+    left 0
+    top 0
+    right 0
+    bottom 0
+    background rgba(0, 0, 0, 0.3) url('../assets/images/play-btn.png') no-repeat center
+    background-size 16vw 16vw
+    cursor pointer
+
+  &__video-palyer
+    position fixed
+    z-index 99
+    left 0
+    right 0
+    top 0
+    bottom 0
+    background-color rgba(0, 0, 0, 0.9)
+    display none
+
+    &--show
+      display block
+
+    video
+      width 100vw
+
+    p
+      color white
+      text-align right
+      padding-top 40vw
+
+      img
+        width 16vw
+        height auto
+
+  &__recommend
+    position relative
+    background-color #05A275
+    margin 13vw 4vw 2vw
+    text-align center
+    border-radius 3vw
+    padding-top 14vw
+
+    &-brand
+      width 100%
+      height auto
+      position absolute
+      top -12vw
+      left 50%
+      transform translateX(-50%)
+      z-index 2
+
+    &-list
+      display grid
+      grid-template-columns 1fr 1fr
+      padding 0 4vw 3vw
+      grid-column-gap 2vw
+      grid-row-gap 3vw
+
+  &__tutor
+    text-center()
+
+    &-brand
+      width 100%
+      height auto
+      display block !important
+
+    &--list
+      display grid
+      grid-template-columns repeat(3, 1fr)
+      padding 6vw 4vw 0
+      grid-gap 3vw
+
+    &-card
+      height 40vw
+      border-radius 4vw
+      ffc-col(flex-end)
+      overflow hidden
+      background-size cover
+
+      p
+        padding 2vw
+
+    &-tag
+      position relative
+      left 2vw
+      top -1vw
+      background-color #FFCC00
+      color black
+      font-size 12px
+      padding 0.2em
+      border-radius 4px
+
+    &-content
+      cursor pointer
+      position relative
+      text-align left
+      height 21vw
+      width 100%
+      color #ffffff
+      background-color rgba(0, 0, 0, 0.7)
+
+      p
+        line-height 1.1
+        font-size 12px
+        text-ellipsis(2)
+
+    &-more
+      position relative
+      left 2vw
+      bottom 1vw
+      background-color black
+      color #FCCA00FF
+      font-size 12px
+      padding 0.2em
+      border-radius 4px

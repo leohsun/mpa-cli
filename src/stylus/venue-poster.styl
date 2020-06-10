@@ -1,0 +1,199 @@
+@import './reset'
+@import './layout'
+
+@keyframes slideUp
+  0%
+    transform translateY(1vw)
+
+  100%
+    transform translateY(-100%)
+
+.venue-poster
+  font-size 14px
+  padding 2vw
+  border-box()
+
+  &__slogan
+    font-size 50px
+    font-weight bold
+    flex 1
+    padding-left 1vw
+    color #fd4b34
+
+  &__nav
+    font-size 18px
+    color #7F7F7F
+    margin-bottom 1vw
+    vertical-align baseline
+
+    p, h1
+      display inline-block
+      font-weight bold
+
+  &__location
+    color #FD4B34
+
+  &__body
+    background-color #FCE7E5
+    padding 1vw
+    border-radius 10px
+
+  &__content
+    ffc-row(space-between, flex-start)
+
+  &__lists
+    height 34vw
+    ffc-col()
+    margin-right 1vw
+
+  &__list
+    width 72vw
+    border-radius 10px
+    overflow hidden
+    margin-bottom 1vw
+
+    &-header
+      height 3vw
+      line-height 3vw
+      color white
+      font-weight bold
+      background-image url('../assets/images/venue/header_bg_01.png')
+      background-repeat no-repeat
+      background-size cover
+      padding-left 2vw
+      border-box()
+
+      span
+        font-weight bold
+        font-size 24px
+        line-height 3vw
+
+    &-item
+      padding 1vw 0
+
+    &-body
+      background-color #fff
+      padding-left 2vw
+      height 12vw
+      border-box()
+      border-top 1px dotted orange
+      border-bottom 1px dotted orange
+      overflow-y scroll
+
+      ul
+        animation slideUp linear 800s infinite
+
+      span
+        font-weight bold
+        font-size 16px
+        color #505050
+        text-ellipsis(1)
+
+        &:first-child
+          color #FD4B34
+
+  &__gird-03
+    display grid
+    grid-template-columns repeat(3, 1fr)
+
+  &__ctr
+    ffc-row(space-between)
+    width 71vw
+    border-box()
+
+  &__input
+    ffc-row()
+    display inline-flex
+    background-color #fff
+    height 3vw
+    border-radius 0.6vw
+    overflow hidden
+    margin-right 1vw
+
+    // margin-right 3vw
+    &-label
+      color white
+      font-weight bold
+      height 3vw
+      line-height 3vw
+      border-box()
+      background-color #FD4B34
+      font-size 18px
+      padding 0 1vw
+      border-radius 0.6vw
+      border-top-right-radius 0
+      border-bottom-right-radius 1vw
+
+    input
+      font-size 16px
+      padding 0.6vw
+      width 10vw
+      font-weight bold
+
+  &__submit
+    cursor pointer
+    color white
+    display block
+    height 3vw
+    line-height 3vw
+    font-size 18px
+    font-weight bold
+    background-color #FD4B34
+    padding 0 4vw
+    border-radius 0.6vw
+    button-effect()
+
+  &__poster
+    flex 1
+    height 34vw
+    ffc-col(space-between)
+
+    img
+      width 100%
+      height auto
+
+      &:first-child
+        margin-bottom 10px
+
+    &--with-text
+      width 100%
+      background url('../assets/images/venue/poster_02.png') no-repeat center
+      background-size cover
+      height 23vw
+      color white
+      padding 2vw
+      border-box()
+      border-radius 10px
+      ffc-col(space-around, flex-start)
+
+      h4
+        font-size 24px
+        font-weight bold
+
+      p
+        font-size 18px
+
+        span
+          font-size 40px
+          font-weight bold
+
+  &__footer
+    text-center()
+    height 5vw
+    line-height 5vw
+    color #FD4B34
+    font-size 38px
+
+    span
+      font-weight bold
+
+  &__editable
+    cursor pointer
+
+  &__editor
+    font-size inherit
+    display inline-block
+    color green
+
+  &__audio
+    margin-top 1vw

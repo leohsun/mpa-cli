@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" href="https://static.wanshangzhijia.com/images/favicon.ico" type="image/x-icon">
+  <title>万商之家</title>
+  <script src="https://webapi.amap.com/maps?v=1.4.15&key=ddda6b29e543b3b11b2b67a3ec701225"></script>
+</head>
+
+<body class="venue-poster">
+  <!-- <audio src="../assets/sounds/venue_bgm.mp3" autoplay loop></audio> -->
+
+  <!-- <iframe src="../assets/sounds/venue_bgm.mp3" allow="autoplay" id="audio"></iframe> -->
+  <nav class="venue-poster__nav">
+    <!-- <img src="../assets/images/venue/logo-wszj.png"> -->
+    <h1 class="venue-poster__slogan venue-poster__editable">万商开播·赋能商家 全国供应链选品大会</h1>
+    <p> <span id="js-date"></span>全国注册通过:<span class="venue-poster__location"><i id="js-location"
+          class="venue-poster__editable">全国</i>分会场</span></p>
+  </nav>
+  <div class="venue-poster__body">
+    <div class="venue-poster__content">
+      <div class="venue-poster__lists">
+        <div class="venue-poster__list">
+          <h2 class="venue-poster__list-header venue-poster__gird-04">
+            <span>本会场信息</span>
+            <span>姓名</span>
+            <span>注册成功</span>
+            <span>注册成功</span>
+          </h2>
+          <ul class="venue-poster__list-body" id="js-list-current">
+          </ul>
+        </div>
+        <div class="venue-poster__list">
+          <h2 class="venue-poster__list-header venue-poster__gird-03">
+            <span>万商热推小店</span>
+            <span>姓名</span>
+            <span>全国会场</span>
+          </h2>
+          <div class="venue-poster__list-body venue-poster__list-body--all">
+            <ul id="js-list-all"></ul>
+          </div>
+        </div>
+        <div class="venue-poster__ctr">
+          <div class="venue-poster__inputs">
+            <div class="venue-poster__input">
+              <span class="venue-poster__input-label">万商小店名称：</span>
+              <input type="text" id="js-merchant" placeholder="...">
+            </div>
+            <div class="venue-poster__input">
+              <span class="venue-poster__input-label">注册人：</span>
+              <input type="text" id="js-owner" placeholder="...">
+            </div>
+          </div>
+          <span class="venue-poster__submit" id="js-submit">提交保护</span>
+        </div>
+      </div>
+      <div class="venue-poster__poster">
+        <img src="<%=require('../assets/images/venue/poster_01.png')%>" alt="" srcset="">
+        <div class="venue-poster__poster--with-text">
+          <h4>店名唯一 先注先得</h4>
+          <p>扶持金<span class="venue-poster__editable">20000</span></p>
+          <p>仅限<span class="venue-poster__editable">5</span>个名额</p>
+        </div>
+        <audio class="venue-poster__audio" preload="auto" loop controls id="js-audio">
+          <source src="../assets/sounds/venue_bgm.mp3" type="audio/mpeg">
+        </audio>
+
+      </div>
+    </div>
+    <footer class="venue-poster__footer">
+      全国绿色通道仅剩:<span>
+        0小时<span id="js-minutes">30</span>分<span id="js-seconds">00</span>秒
+      </span>
+    </footer>
+  </div>
+
+</body>
+
+</html>
