@@ -1,0 +1,42 @@
+@import './effect'
+
+.g-button
+  background-color #FF434F
+  display inline-block
+  color #fff
+  font-size 18px
+  height 13vw
+  line-height 13vw
+  width 100%
+  text-align center
+  button-effect()
+  border-radius 2px
+
+.g-header
+  height 14vw
+  line-height 14vw
+  background-color #FF8888
+  color #fff
+  ffc-row(space-between)
+  padding 0 5vw
+
+.g-divider
+  height 2vw
+  background-color #FAFAFA
+
+@media only screen and (min-width 768px)
+  .g-button
+    height 50px
+    line-height 50px
+
+  .g-header
+    height 40px
+    line-height 40px
+    background-color #FF8888
+    color #fff
+    ffc-row(space-between)
+    padding 0 40px
+
+  .g-divider
+    height 14px
+    background-color #FAFAFA

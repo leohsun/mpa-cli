@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  @require('../components/meta.html')
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>登錄-佳之麗</title>
+</head>
+
+<body class="index">
+  <div class="index__logo">
+    <img src="<%= require('../assets/logo.png') %>" alt="天麗生技LOGO">
+  </div>
+  <ul class="index__form">
+    <li>
+      <img src="<%= require('../assets/index/icon-user.png') %>" alt="user">
+      <input id="username" type="text" placeholder="請輸入姓名" value="">
+    </li>
+    <li>
+      <img src="<%= require('../assets/index/icon-id.png') %>" alt="user">
+      <input id="id" type="text" placeholder="請輸入身份證號" value="">
+    </li>
+  </ul>
+  <div class="index__button">
+    <span class="g-button" id="js-submit">登入</span>
+  </div>
+  <p class="index__tip">第一次看診請現場掛號！</p>
+
+  <p class="index__footer">- 佳之麗診所預約系統 -</p>
+</body>
+
+</html>

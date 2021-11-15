@@ -1,0 +1,48 @@
+ffc-col(main = space-around, cross = center)
+  display flex
+  flex-direction column
+  justify-content main
+  align-items cross
+
+ffc-row(main = space-around, cross = center)
+  display flex
+  justify-content main
+  align-items cross
+
+ibfc()
+  display inline-block
+
+text-center()
+  text-align center
+
+text-left()
+  text-align left
+
+text-right()
+  text-align right
+
+border-box()
+  box-sizing border-box
+
+button-effect()
+  transform scale(1)
+  transition all 0.2s
+
+  &:active
+    transform scale(0.99)
+
+circle()
+  border-radius 50%
+
+text-ellipsis(row = 1)
+  if (row == 1)
+    overflow hidden
+    white-space nowrap
+    text-overflow ellipsis
+  else
+    line-height 1.2
+    display -webkit-box
+    -webkit-box-orient vertical
+    -webkit-line-clamp row
+    max-height unit(row + row * 0.2 - 0.1, 'em')
+    overflow hidden
