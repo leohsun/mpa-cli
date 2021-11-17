@@ -33,7 +33,7 @@ const config = {
   output: {
     filename: !isDev ? "scripts/[name].[hash:6].js" : "scripts/[name].js",
     path: buildPath("./dist"),
-    publicPath: !isDev ? "./" : "/",
+    publicPath: "/",
   },
 
   module: {
