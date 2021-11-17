@@ -26,14 +26,14 @@ const componentEntry = buildPath("./src/components/entry.js")
 const viewEntries = getEntry(buildPath("src/scripts/**/*.js"))
 
 // const entryObj = { ...viewEntries, component: componentEntry }
-const isProd = process.env.NODE_ENV === "production"
+const isDev = process.env.NODE_ENV == "dev"
 
 const config = {
   entry: viewEntries,
   output: {
-    filename: isProd ? "scripts/[name].[hash:6].js" : "scripts/[name].js",
+    filename: !isDev ? "scripts/[name].[hash:6].js" : "scripts/[name].js",
     path: buildPath("./dist"),
-    publicPath: isProd ? "./" : "/",
+    publicPath: !isDev ? "./" : "/",
   },
 
   module: {
@@ -43,7 +43,7 @@ const config = {
         exclude: /(node_modules)/,
         use: [
           {
-            loader: isProd ? CssPlugin.loader : "style-loader",
+            loader: !isDev ? CssPlugin.loader : "style-loader",
           },
           {
             loader: "postcss-loader",
@@ -74,7 +74,7 @@ const config = {
         use: [
           // extract css
           {
-            loader: isProd ? CssPlugin.loader : "style-loader",
+            loader: !isDev ? CssPlugin.loader : "style-loader",
           },
           // Creates `style` nodes from JS strings
           // 'style-loader',
@@ -208,7 +208,7 @@ const config = {
     new CleanWebpackPlugin(),
 
     new CssPlugin({
-      filename: isProd ? "css/[name].[hash:6].css" : "css/[name].css",
+      filename: !isDev ? "css/[name].[hash:6].css" : "css/[name].css",
     }),
   ],
 }
@@ -222,12 +222,12 @@ for (let key in viewEntries) {
         chunks: [key],
         inject: true,
         minify: {
-          collapseWhitespace: isProd,
-          removeComments: isProd,
-          removeRedundantAttributes: isProd,
-          removeScriptTypeAttributes: isProd,
-          removeStyleLinkTypeAttributes: isProd,
-          useShortDoctype: isProd,
+          collapseWhitespace: !isDev,
+          removeComments: !isDev,
+          removeRedundantAttributes: !isDev,
+          removeScriptTypeAttributes: !isDev,
+          removeStyleLinkTypeAttributes: !isDev,
+          useShortDoctype: !isDev,
         },
       })
     )
